@@ -40,7 +40,6 @@ export default async function EpisodePage(props: { params: Promise<{ slug: strin
             src={episode.iframeUrl} 
             allowFullScreen 
             className="w-full h-full border-0 absolute inset-0"
-            sandbox="allow-scripts allow-same-origin allow-presentation allow-forms"
           ></iframe>
         ) : episode.videoUrl ? (
           <video 

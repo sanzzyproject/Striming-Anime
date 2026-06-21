@@ -166,7 +166,7 @@ export async function getEpisode(slug: string) {
 
   return {
     title: epData.title ? `${animeFull.data?.title || 'Anime'} - Episode ${epId}: ${epData.title}` : `${animeFull.data?.title || 'Anime'} - Episode ${epId}`,
-    iframeUrl: null, // Removed due to source switch to Jikan API
+    iframeUrl: `https://animeplay.cfd/stream/mal/${animeId}/${epId}/sub`,
     videoUrl: null,
     prevEpisode,
     nextEpisode,
