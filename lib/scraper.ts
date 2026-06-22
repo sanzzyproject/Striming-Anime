@@ -74,6 +74,88 @@ export async function getTop(page: number = 1): Promise<AnimeListResponse> {
   };
 }
 
+export async function getPopular(page: number = 1): Promise<AnimeListResponse> {
+  const data = await fetchJikan(`/top/anime?filter=bypopularity&page=${page}`);
+  return {
+    items: (data.data || []).map(mapAnime),
+    currentPage: page,
+    hasNext: data.pagination?.has_next_page || false,
+  };
+}
+
+export async function getUpcoming(page: number = 1): Promise<AnimeListResponse> {
+  const data = await fetchJikan(`/seasons/upcoming?page=${page}`);
+  return {
+    items: (data.data || []).map(mapAnime),
+    currentPage: page,
+    hasNext: data.pagination?.has_next_page || false,
+  };
+}
+
+export async function getMovies(page: number = 1): Promise<AnimeListResponse> {
+  const data = await fetchJikan(`/anime?type=movie&order_by=popularity&sort=desc&page=${page}`);
+  return {
+    items: (data.data || []).map(mapAnime),
+    currentPage: page,
+    hasNext: data.pagination?.has_next_page || false,
+  };
+}
+
+export async function getAction(page: number = 1): Promise<AnimeListResponse> {
+  const data = await fetchJikan(`/anime?genres=1&order_by=popularity&sort=desc&page=${page}`);
+  return {
+    items: (data.data || []).map(mapAnime),
+    currentPage: page,
+    hasNext: data.pagination?.has_next_page || false,
+  };
+}
+
+export async function getRomance(page: number = 1): Promise<AnimeListResponse> {
+  const data = await fetchJikan(`/anime?genres=22&order_by=popularity&sort=desc&page=${page}`);
+  return {
+    items: (data.data || []).map(mapAnime),
+    currentPage: page,
+    hasNext: data.pagination?.has_next_page || false,
+  };
+}
+
+export async function getComedy(page: number = 1): Promise<AnimeListResponse> {
+  const data = await fetchJikan(`/anime?genres=4&order_by=popularity&sort=desc&page=${page}`);
+  return {
+    items: (data.data || []).map(mapAnime),
+    currentPage: page,
+    hasNext: data.pagination?.has_next_page || false,
+  };
+}
+
+export async function getAdventure(page: number = 1): Promise<AnimeListResponse> {
+  const data = await fetchJikan(`/anime?genres=2&order_by=popularity&sort=desc&page=${page}`);
+  return {
+    items: (data.data || []).map(mapAnime),
+    currentPage: page,
+    hasNext: data.pagination?.has_next_page || false,
+  };
+}
+
+export async function getSciFi(page: number = 1): Promise<AnimeListResponse> {
+  const data = await fetchJikan(`/anime?genres=24&order_by=popularity&sort=desc&page=${page}`);
+  return {
+    items: (data.data || []).map(mapAnime),
+    currentPage: page,
+    hasNext: data.pagination?.has_next_page || false,
+  };
+}
+
+export async function getFantasy(page: number = 1): Promise<AnimeListResponse> {
+  const data = await fetchJikan(`/anime?genres=10&order_by=popularity&sort=desc&page=${page}`);
+  return {
+    items: (data.data || []).map(mapAnime),
+    currentPage: page,
+    hasNext: data.pagination?.has_next_page || false,
+  };
+}
+
+
 export async function getSearch(query: string, page: number = 1): Promise<AnimeListResponse> {
   const data = await fetchJikan(`/anime?q=${encodeURIComponent(query)}&page=${page}`);
   return {

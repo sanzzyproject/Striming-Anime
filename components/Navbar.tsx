@@ -38,11 +38,13 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center gap-6">
-            <Link href="/" className="text-xl font-bold tracking-tighter text-white flex items-center gap-2">
-              <div className="w-8 h-8 bg-[#ff4e00] rounded-lg flex items-center justify-center">
-                <div className="w-3 h-3 bg-white rotate-45"></div>
-              </div>
-              Wibu<span className="text-[#ff4e00]">Final</span>
+            <Link href="/" className="text-2xl font-black tracking-tight text-white flex items-center gap-2.5">
+              <svg className="w-9 h-9 text-[#ff9d00]" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.5 15.6L24.4 46.1C31.5 42.4 39.8 40.5 48.6 40.5C58.1 40.5 67 42.7 74.4 46.7L85.6 15.6L76.1 50C87.9 59.4 92.5 73.1 84.4 86.9C74.4 103.8 24.4 104.4 14.4 86.9C6.25 72.5 11.25 58.8 23.1 50L12.5 15.6Z"/>
+                <ellipse cx="68.8" cy="71.9" rx="7.5" ry="13.1" fill="white" transform="rotate(20 68.8 71.9)"/>
+                <ellipse cx="30" cy="71.9" rx="7.5" ry="13.1" fill="white" transform="rotate(-20 30 71.9)"/>
+              </svg>
+              WibuFinal
             </Link>
             
             <div className="hidden md:flex items-center gap-6 text-sm font-medium">

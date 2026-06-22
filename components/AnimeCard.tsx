@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { PlayCircle } from 'lucide-react';
+import { PlayCircle, Bookmark, Star } from 'lucide-react';
 import type { AnimeItem } from '@/lib/scraper';
 
 export function AnimeCard({ anime }: { anime: AnimeItem }) {
   return (
     <Link href={`/anime/${anime.slug}`} className="group relative flex flex-col gap-2">
-      <div className="relative aspect-[2/3] w-full overflow-hidden rounded-2xl bg-neutral-800 border border-white/5 transition-all group-hover:border-[#ff4e00]/50">
+      <div className="relative aspect-[2/3] w-full overflow-hidden rounded-xl bg-neutral-800 transition-all group-hover:opacity-80">
         {anime.poster ? (
           <Image
             src={anime.poster.startsWith('http') ? anime.poster : `https:${anime.poster}`}
@@ -23,20 +23,21 @@ export function AnimeCard({ anime }: { anime: AnimeItem }) {
         )}
         
         {/* Play Overlay */}
-        <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-center justify-center">
-             <PlayCircle className="w-12 h-12 text-[#ff4e00]/90 drop-shadow-lg scale-75 group-hover:scale-100 transition-transform duration-300" />
+        <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-center justify-center pointer-events-none">
+             <PlayCircle className="w-12 h-12 text-white/90 drop-shadow-lg scale-75 group-hover:scale-100 transition-transform duration-300" />
         </div>
 
-        {/* Badges */}
+        {/* Top left Bookmark */}
+        <div className="absolute top-2 left-2 flex items-center justify-center w-7 h-7 bg-black/60 backdrop-blur rounded-[4px] border border-white/10 hover:bg-black/80 transition-colors">
+           <Bookmark className="w-4 h-4 text-white" />
+        </div>
+
+        {/* Top right Badge */}
         <div className="absolute top-2 right-2 flex flex-col gap-1 items-end">
-          {anime.episode && (
-            <span className="px-2 py-0.5 bg-black/80 backdrop-blur text-[10px] text-white font-bold rounded">
-              {anime.episode}
-            </span>
-          )}
-          {anime.status && (
-            <span className="px-2 py-0.5 bg-black/80 backdrop-blur text-[10px] text-[#ff4e00] font-bold rounded">
-              {anime.status}
+          {(anime.episode || anime.status) && (
+            <span className="flex items-center gap-1 px-1.5 py-0.5 bg-black/60 backdrop-blur text-[11px] text-white font-bold rounded-[4px] border border-white/10">
+              <Star className="w-3 h-3 text-[#ffbd00] fill-[#ffbd00]" /> 
+              {anime.episode || anime.status}
             </span>
           )}
         </div>
@@ -48,12 +49,12 @@ export function AnimeCard({ anime }: { anime: AnimeItem }) {
              </div>
         </div>
       </div>
-      <div className="px-0.5">
-        <h3 className="line-clamp-2 text-sm font-semibold text-[#e0e0e0] group-hover:text-white transition-colors truncate">
+      <div className="px-0.5 mt-1">
+        <h3 className="line-clamp-2 text-sm font-semibold text-[#f0f0f0] group-hover:text-white transition-colors truncate">
           {anime.title}
         </h3>
         {(anime.type || anime.status) && (
-          <p className="text-xs text-white/40 truncate">
+          <p className="text-xs text-white/40 mt-0.5 truncate font-medium">
             {anime.type || "Anime"} {anime.status ? `• ${anime.status}` : ''}
           </p>
         )}
