@@ -42,7 +42,7 @@ export function Navbar() {
               <div className="w-8 h-8 bg-[#ff4e00] rounded-lg flex items-center justify-center">
                 <div className="w-3 h-3 bg-white rotate-45"></div>
               </div>
-              ANIME<span className="text-[#ff4e00]">KU</span>
+              Wibu<span className="text-[#ff4e00]">Final</span>
             </Link>
             
             <div className="hidden md:flex items-center gap-6 text-sm font-medium">

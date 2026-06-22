@@ -7,7 +7,7 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Anime Streaming',
+  title: 'WibuFinal',
   description: 'Watch anime full episodes directly.',
 };
 
@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main>
           <footer className="border-t border-white/10 py-6 mt-10">
             <div className="max-w-7xl mx-auto px-4 text-center text-sm text-white/40">
-              © {new Date().getFullYear()} Anime Streaming. Not affiliated with any services.
+              © {new Date().getFullYear()} WibuFinal. Not affiliated with any services.
             </div>
           </footer>
         </ThemeProvider>
